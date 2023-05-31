@@ -41,19 +41,18 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-                  <Link
+                  {/* <Link
                     page="Our Classes"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
-                  />
+                  /> */}
                   <Link
-                    page="Contact US"
+                    page="Contact Me"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
                 </div>
                 <div className={`${flexBetween} gap-8`}>
-                  <p>Sign in</p>
                   <ActionButton setSelectedPage={setSelectedPage}>
                     Become a member
                   </ActionButton>
@@ -93,13 +92,13 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
-            <Link
+            {/* <Link
               page="Our Classes"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
-            />
+            /> */}
             <Link
-              page="Contact US"
+              page="Contact Me"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
