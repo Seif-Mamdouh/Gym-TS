@@ -14,19 +14,22 @@ import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
 const benefits: Array<BenefitType> = [
   {
     icon: <HomeModernIcon className="h-6 w-6" />,
-    title: "State of Art Facilities",
-    description: "sadnsjkdjnsikdjkasdjkasdjkasjdkasjd asjdnaskdjaksjaskdsai",
+    title: "Personalized Guidance",
+    description:
+      "Get tailored workout plans, nutrition advice, and expert support for effective fitness goals",
   },
   {
     icon: <UserGroupIcon className="h-6 w-6" />,
-    title: "Diverse Classes",
-    description: "sadnsjkdjnsikdjkasdjkasdjkasjdkasjd asjdnaskdjaksjaskdsai",
+    title: "College Lifestyle Integration",
+    description:
+      "Seamlessly fit workouts into your busy college schedule, customized for your commitments.",
   },
   {
     icon: <AcademicCapIcon className="h-6 w-6" />,
-    title: "Expert Pro Trainers",
-    description: "sadnsjkdjnsikdjkasdjkasdjkasjdkasjd asjdnaskdjaksjaskdsai",
-  }
+    title: "Community & Motivation",
+    description:
+      "Join a supportive fitness community, celebrating successes, staying accountable and happy",
+  },
 ];
 
 const container = {
