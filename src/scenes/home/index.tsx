@@ -10,20 +10,37 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import { motion } from "framer-motion";
 import { duration } from "@mui/material";
 
+import Lottie from "react-lottie";
+import animationData from "@/lottie/dumbell.json";
+
+
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
 const Home = ({ setSelectedPage }: Props) => {
+  const dumbbell = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px");
 
+  const lottieHeight = isAboveMediumScreens ? 450 : 300;
+  const lottieWidth = isAboveMediumScreens ? 450 : 300;
+
+
   return (
-    <section id="home" className="md: gap-16 bg-gray-20 py-10 pb-0">
+    <section id="home" className="md: gap-16 bg-white py-10 pb-0">
       {/* IMAGE AND MAIN HEADER */}
-          <motion.div
-              className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
-              onViewportEnter = {() => setSelectedPage(SelectedPage.Home)}
-          >
+      <motion.div
+        className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
+        onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
+      >
         {/* MAIN HEADER */}
         <div className="z-10 mt-32 md:basis-3/5">
           {/* HEADINGS */}
@@ -64,7 +81,7 @@ const Home = ({ setSelectedPage }: Props) => {
               Join Now
             </ActionButton>
             <AnchorLink
-              className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
+              className="text-sm font-bold text-primary-500 underline hover:text-primary-900"
               onClick={() => setSelectedPage(SelectedPage.ContactUs)}
               href={`#${SelectedPage.ContactUs}`}
             >
@@ -75,13 +92,14 @@ const Home = ({ setSelectedPage }: Props) => {
 
         {/* IMAGE */}
         <div className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:justify-items-end">
-          <img alt="home-pageGraphic" src={HomePageGraphic} />
+          {/* <img alt="homePage-Image" src={HomePageGraphic} /> */}
+          <Lottie options={dumbbell} height={lottieHeight} width={lottieWidth} />
         </div>
       </motion.div>
 
       {/* SPONSORS */}
       {isAboveMediumScreens && (
-        <div className="h-[150px] w-full bg-primary-100 py-10">
+        <div className="h-[150px] w-full bg-white py-10">
           <div className="mx-auto w-5/6">
             <div className="flex w-3/5 items-center justify-between gap-8">
               <img alt="redbull-sponsor" src={SponsorRedBull} />
