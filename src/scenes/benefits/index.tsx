@@ -8,33 +8,77 @@ import { motion } from "framer-motion";
 import HText from "@/shared/HText";
 import Benefit from "./Benefit";
 import ActionButton from "@/shared/ActionButton";
-import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
+import BenefitsPageGraphic from "@/assets/Seif.png";
 
+import Lottie from "react-lottie";
+import coach from "@/lottie/coach-cencept-animation.json";
+import benchPress from "@/lottie/benchPress.json";
+import gymCouple from "@/lottie/gymOld.json";
+import legPress from "@/lottie/girlLegPress.json";
+
+const Coach = {
+  loop: true,
+  autoplay: true,
+  animationData: coach,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
+const BenchPress = {
+  loop: true,
+  autoplay: true,
+  animationData: benchPress,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
+const GymCouple = {
+  loop: true,
+  autoplay: true,
+  animationData: gymCouple,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
+const LegPress = {
+  loop: true,
+  autoplay: true,
+  animationData: legPress,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
 
 const benefits: Array<BenefitType> = [
   {
-    icon: <HomeModernIcon className="h-6 w-6" />,
-    title: "State of Art Facilities",
-    description: "sadnsjkdjnsikdjkasdjkasdjkasjdkasjd asjdnaskdjaksjaskdsai",
+    icon: <Lottie options={LegPress} height={45} width={45} />,
+    title: "Personalized Guidance",
+    description:
+      "Get tailored workout plans, nutrition advice, and expert support for effective fitness goals.",
   },
   {
-    icon: <UserGroupIcon className="h-6 w-6" />,
-    title: "Diverse Classes",
-    description: "sadnsjkdjnsikdjkasdjkasdjkasjdkasjd asjdnaskdjaksjaskdsai",
+    icon: <Lottie options={BenchPress} height={45} width={45} />,
+    title: "College Lifestyle Integration",
+    description:
+      "Seamlessly fit workouts into your busy college schedule, customized for your commitments.",
   },
   {
-    icon: <AcademicCapIcon className="h-6 w-6" />,
-    title: "Expert Pro Trainers",
-    description: "sadnsjkdjnsikdjkasdjkasdjkasjdkasjd asjdnaskdjaksjaskdsai",
-  }
+    icon: <Lottie options={GymCouple} height={45} width={45} />,
+    title: "Personalized Guidance",
+    description:
+      "Join a supportive fitness community, celebrating successes and staying accountable.",
+  },
 ];
 
 const container = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.2 }
+    transition: { staggerChildren: 0.2 },
   },
-}
+};
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -58,11 +102,12 @@ const Benefits = ({ setSelectedPage }: Props) => {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <HText>MORE THAN JUST GYM.</HText>
+          <HText>Ignite Your College Fitness Revolution.</HText>
           <p className="my-5 text-sm">
-            We provide world class fitness equipment, trainers and classes to
-            get you to your ultimate fitness goals with ease. We provide true
-            care into each and every member.
+            Embrace a fitness revolution designed exclusively for college
+            students, as we break away from the average gym experience and
+            unleash a tailored consulting service that catapults you towards
+            your fittest self like never before.
           </p>
         </motion.div>
 
@@ -89,7 +134,7 @@ const Benefits = ({ setSelectedPage }: Props) => {
         <div className="mt-16 items-center justify-between gap-20 md:mt-28 md:flex">
           {/* GRAPHIC */}
           <img
-            className="mx-auto"
+            className="max-w-xs rounded-2xl drop-shadow-2xl"
             alt="benefits-page-graphic"
             src={BenefitsPageGraphic}
           />
@@ -110,8 +155,9 @@ const Benefits = ({ setSelectedPage }: Props) => {
                   }}
                 >
                   <HText>
-                    MILLONS OF HAPPY MEMBERS GETTING{" "}
-                    <span className="text-primary-500"> FIT </span>
+                    Unleash Your Fittest Self with Tailored Consulting for
+                    Unprecedented{" "}
+                    <span className="text-secondary-500"> Results! </span>
                   </HText>
                 </motion.div>
               </div>
@@ -129,18 +175,24 @@ const Benefits = ({ setSelectedPage }: Props) => {
               }}
             >
               <p className="my-5">
-                Nascetur aenean massa auctor tincidunt. Iaculis potenti amet
-                egestas ultrices consectetur adipiscing ultricies enim. Pulvinar
-                fames vitae vitae quis. Quis amet vulputate tincidunt at in
-                nulla nec. Consequat sed facilisis dui sit egestas ultrices
-                tellus. Ullamcorper arcu id pretium sapien proin integer nisl.
-                Felis orci diam odio.
+                Our revolutionary consulting service breaks free from the
+                confines of average gym experiences, propelling you towards
+                unparalleled results. With tailored workout plans, expert
+                nutrition advice, and unwavering support, we empower you to
+                embrace your full potential and unlock the best version of
+                yourself. Our approach seamlessly integrates into your busy
+                college schedule, ensuring that fitness becomes an integral part
+                of your life without sacrificing your academic or social
+                commitments.
               </p>
               <p className="mb-5">
-                Fringilla a sed at suspendisse ut enim volutpat. Rhoncus vel est
-                tellus quam porttitor. Mauris velit euismod elementum arcu neque
-                facilisi. Amet semper tortor facilisis metus nibh. Rhoncus sit
-                enim mattis odio in risus nunc.
+                Join a vibrant community of fellow college students, find
+                motivation, and celebrate successes together. It's time to
+                shatter limits, redefine what it means to be fit, and embark on
+                an extraordinary fitness journey that leaves an indelible mark
+                on your college years. Unleash your fittest self and conquer
+                your goals with our transformative tailored consulting for
+                unprecedented results!
               </p>
             </motion.div>
 
