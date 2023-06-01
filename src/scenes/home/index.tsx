@@ -11,18 +11,23 @@ import { motion } from "framer-motion";
 import { duration } from "@mui/material";
 
 import Lottie from "react-lottie";
-import animationData from "@/lottie/dumbell.json";
-
+import dumbell from "@/lottie/dumbell.json";
+import coach from "@/lottie/coach-cencept-animation.json";
+import benchPress from "@/lottie/benchPress.json";
+import gymCouple from "@/lottie/gymOld.json";
+import legPress from "@/lottie/girlLegPress.json";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
 const Home = ({ setSelectedPage }: Props) => {
-  const dumbbell = {
+
+  // Header Animatioon
+  const Dumbbell = {
     loop: true,
     autoplay: true,
-    animationData: animationData,
+    animationData: dumbell,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -32,7 +37,6 @@ const Home = ({ setSelectedPage }: Props) => {
 
   const lottieHeight = isAboveMediumScreens ? 450 : 300;
   const lottieWidth = isAboveMediumScreens ? 450 : 300;
-
 
   return (
     <section id="home" className="md: gap-16 bg-white py-10 pb-0">
@@ -61,7 +65,7 @@ const Home = ({ setSelectedPage }: Props) => {
               </div>
             </div>
             <p className="mt-8 text-sm">
-              Let's get this work in baby! WHOHOOOOO
+              Your average gym bro trying to help you!
             </p>
           </motion.div>
 
@@ -81,7 +85,7 @@ const Home = ({ setSelectedPage }: Props) => {
               Join Now
             </ActionButton>
             <AnchorLink
-              className="text-sm font-bold text-primary-500 underline hover:text-primary-900"
+              className="text-sm font-bold text-gray-500 underline hover:text-secondary-400"
               onClick={() => setSelectedPage(SelectedPage.ContactUs)}
               href={`#${SelectedPage.ContactUs}`}
             >
@@ -93,18 +97,27 @@ const Home = ({ setSelectedPage }: Props) => {
         {/* IMAGE */}
         <div className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:justify-items-end">
           {/* <img alt="homePage-Image" src={HomePageGraphic} /> */}
-          <Lottie options={dumbbell} height={lottieHeight} width={lottieWidth} />
+          <Lottie
+            options={Dumbbell}
+            height={lottieHeight}
+            width={lottieWidth}
+          />
         </div>
       </motion.div>
 
       {/* SPONSORS */}
       {isAboveMediumScreens && (
-        <div className="h-[150px] w-full bg-white py-10">
+        <div className="h-[50px] w-full bg-secondary-400 py-10">
           <div className="mx-auto w-5/6">
             <div className="flex w-3/5 items-center justify-between gap-8">
-              <img alt="redbull-sponsor" src={SponsorRedBull} />
+              {/* <img alt="redbull-sponsor" src={SponsorRedBull} />
               <img alt="forbes-sponsor" src={SponsorForbes} />
-              <img alt="fortune-sponsor" src={SponsorFortune} />
+              <img alt="fortune-sponsor" src={SponsorFortune} /> */}
+              {/* <p> Unlock Your Full Potential</p> */}
+              {/* <Lottie options={Coach} height={100} width={150} />
+              <Lottie options={BenchPress} height={100} width={150} />
+              <Lottie options={GymCouple} height={100} width={150} />
+              <Lottie options={LegPress} height={100} width={150} /> */}
             </div>
           </div>
         </div>

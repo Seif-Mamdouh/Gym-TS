@@ -16,7 +16,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   const flexBetween = "flex items-center justify-between";
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
     const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
-    const navbarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
+    const navbarBackground = isTopOfPage ? "" : "bg-secondary-400 drop-shadow";
     
   return (
     <nav>
@@ -46,15 +46,15 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   /> */}
-                  <Link
+                  {/* <Link
                     page="Contact Me"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
-                  />
+                  /> */}
                 </div>
                 <div className={`${flexBetween} gap-8`}>
                   <ActionButton setSelectedPage={setSelectedPage}>
-                    Become a member
+                    Get Free Fitness Advice
                   </ActionButton>
                 </div>
               </div>
@@ -72,7 +72,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
 
       {/* Mobile Menu */}
       {!isAboveMediumScreens && isMenuToggled && (
-        <div className="bottom fixed right-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl">
+        <div className="bottom fixed right-0 z-40 h-full w-[300px] bg-secondary-400 drop-shadow-xl">
           {/* CLOSE ICON */}
           <div className="flex justify-end p-12">
             <button onClick={() => setIsMenuToggled(!isMenuToggled)}>

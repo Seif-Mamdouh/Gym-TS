@@ -1,0 +1,6 @@
+.description {
+  height: 80px; /* Adjust the height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
