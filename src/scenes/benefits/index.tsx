@@ -16,15 +16,6 @@ import benchPress from "@/lottie/benchPress.json";
 import gymCouple from "@/lottie/gymOld.json";
 import legPress from "@/lottie/girlLegPress.json";
 
-const Coach = {
-  loop: true,
-  autoplay: true,
-  animationData: coach,
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice",
-  },
-};
-
 const BenchPress = {
   loop: true,
   autoplay: true,
