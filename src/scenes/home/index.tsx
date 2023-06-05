@@ -8,8 +8,6 @@ import SponsorForbes from "@/assets/SponsorForbes.png";
 import SponsorFortune from "@/assets/SponsorFortune.png";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { motion } from "framer-motion";
-import { duration } from "@mui/material";
-
 import Lottie from "react-lottie";
 import dumbell from "@/lottie/dumbell.json";
 import coach from "@/lottie/coach-cencept-animation.json";
