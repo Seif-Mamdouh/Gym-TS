@@ -58,7 +58,7 @@ const benefits: Array<BenefitType> = [
   },
   {
     icon: <Lottie options={GymCouple} height={45} width={45} />,
-    title: "Personalized Guidance",
+    title: "Community & Motivation",
     description:
       "Join a supportive fitness community, celebrating successes and staying accountable.",
   },
