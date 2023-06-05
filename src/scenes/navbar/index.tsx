@@ -1,11 +1,14 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import Logo from "@/assets/logo.png";
+import logo from "@/lottie/logo.json";
 
 import Link from "./link";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "@/shared/ActionButton";
+
+import Lottie from "react-lottie"
 
 type Props = {
   isTopOfPage: boolean;
@@ -13,11 +16,26 @@ type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
+
+  // Header Animatioon
+  const Logo = {
+    loop: true,
+    autoplay: true,
+    animationData: logo,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+
 const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   const flexBetween = "flex items-center justify-between";
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
     const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
-    const navbarBackground = isTopOfPage ? "" : "bg-secondary-400 drop-shadow";
+  const navbarBackground = isTopOfPage ? "" : "bg-secondary-400 drop-shadow";
+  
+    const lottieHeight = isAboveMediumScreens ? 90 : 75;
+    const lottieWidth = isAboveMediumScreens ? 90 : 75;
     
   return (
     <nav>
@@ -27,11 +45,14 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
         <div className={`${flexBetween} mx-auto w-5/6`}>
           {/* LEFT - SIDE  */}
           <div className={`${flexBetween} w-full gap-16`}>
-            <img alt="logo" src={Logo} />
-            {/* RIGHT - SIDE */}
-            {isAboveMediumScreens ? (
-              <div className={`${flexBetween} w-full`}>
-                <div className={`${flexBetween} gap-8 text-sm`}>
+            <div className="flex items-center gap-10">
+              <Lottie
+                options={Logo}
+                height={lottieHeight}
+                width={lottieWidth}
+              />
+              {isAboveMediumScreens && (
+                <>
                   <Link
                     page="Home"
                     selectedPage={selectedPage}
@@ -42,22 +63,16 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-                  {/* <Link
-                    page="Our Classes"
-                    selectedPage={selectedPage}
-                    setSelectedPage={setSelectedPage}
-                  /> */}
-                  {/* <Link
-                    page="Contact Me"
-                    selectedPage={selectedPage}
-                    setSelectedPage={setSelectedPage}
-                  /> */}
-                </div>
-                <div className={`${flexBetween} gap-8`}>
-                  <ActionButton setSelectedPage={setSelectedPage}>
-                    Get Free Fitness Advice
-                  </ActionButton>
-                </div>
+                </>
+              )}
+            </div>
+
+            {/* RIGHT - SIDE */}
+            {isAboveMediumScreens ? (
+              <div className={`${flexBetween} gap-8`}>
+                <ActionButton setSelectedPage={setSelectedPage}>
+                  Get Free Fitness Advice
+                </ActionButton>
               </div>
             ) : (
               <button
@@ -93,21 +108,12 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
-            {/* <Link
-              page="Our Classes"
-              selectedPage={selectedPage}
-              setSelectedPage={setSelectedPage}
-            /> */}
-            <Link
-              page="Contact Me"
-              selectedPage={selectedPage}
-              setSelectedPage={setSelectedPage}
-            />
           </div>
         </div>
       )}
     </nav>
   );
+
 };
 
 export default Navbar;
